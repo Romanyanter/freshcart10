@@ -1,0 +1,59 @@
+<app-silder [catagrousilder]="catagrou"></app-silder>
+<input
+  type="text"
+  class="form-control mx-auto w-50 my-5"
+  placeholder="Search......"
+  [(ngModel)]="searchword"
+/>
+<div *ngIf="prodectList.length > 0; else loooding" class="row g-5">
+  <div
+    class="col-lg-3 col-md-4 col-sm-12 datails product text-center"
+    *ngFor="let prodect of prodectList | search : searchword"
+  >
+    <div>
+      <i
+        class="fa-solid fa-heart fs-3"
+        (click)="addprodectWshlist(prodect._id)"
+        
+      ></i>
+      
+
+      <img
+        [src]="prodect.imageCover"
+        [routerLink]="['/prodectdatalis', prodect._id, prodect.title]"
+        class="w-100"
+        alt="photo"
+      />
+      <p>{{ prodect.title }}</p>
+      <h4>{{ prodect.category.name | uppercase }}</h4>
+      <div
+        class="d-flex justify-content-between align-items-center w-100 h-100"
+      >
+        <p>{{ prodect.price | currency : "EGP " }}</p>
+
+        <p>
+          <i class="fa-solid fa-star rating-color"></i>
+          {{ prodect.ratingsAverage }}
+        </p>
+      </div>
+      <button
+        class="btn btn-success mb-3 ps-5 pe-5"
+        (click)="addtoprodectCart(prodect.id)"
+      >
+        <i class="fa-solid fa-plus fs-6"></i> Add
+      </button>
+    </div>
+  </div>
+</div>
+<ng-template #loooding>
+  <div class="loding d-flex justify-content-center align-items-center">
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+  </div>
+</ng-template>

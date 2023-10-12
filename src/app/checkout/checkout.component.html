@@ -1,0 +1,97 @@
+<div class="container pt-5">
+  <h3 class="text-center text-success mt-5">Shipping address</h3>
+  <form [formGroup]="shipingAddressForm" (ngSubmit)="checkout(shipingAddressForm)">
+    <label for="Details">Details</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="Details"
+    formControlName="Details"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="
+    shipingAddressForm.get('Details')?.errors && shipingAddressForm.get('Details')?.touched
+    "
+  >
+    <p
+      class="m-0"
+      *ngIf="
+      shipingAddressForm.get('Details')?.getError('required') &&
+        shipingAddressForm.get('Details')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    
+  </div>
+    <label for="phone">phone:</label>
+  <input
+    type="phone"
+    class="form-control mb-3"
+    id="phone"
+    formControlName="phone"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="
+    shipingAddressForm.get('phone')?.errors && shipingAddressForm.get('phone')?.touched
+    "
+  >
+    <p
+      class="m-0"
+      *ngIf="
+      shipingAddressForm.get('phone')?.getError('required') &&
+        shipingAddressForm.get('phone')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+      shipingAddressForm.get('phone')?.getError('pattern') &&
+        shipingAddressForm.get('phone')?.touched
+      "
+    >
+      Please Enter Correct Phone
+    </p>
+  </div>
+  <label for="city">City</label>
+  <input
+    type="city"
+    class="form-control mb-3"
+    id="city"
+    formControlName="city"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="
+    shipingAddressForm.get('city')?.errors && shipingAddressForm.get('city')?.touched
+    "
+  >
+    <p
+      class="m-0"
+      *ngIf="
+      shipingAddressForm.get('city')?.getError('required') &&
+        shipingAddressForm.get('city')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+      shipingAddressForm.get('city')?.getError('pattern') &&
+        shipingAddressForm.get('city')?.touched
+      "
+    >
+      Please Enter Correct city
+    </p>
+  </div>
+    <div class="d-flex justify-content-center align-items-center w-100">
+      <button class="btn btn-outline-primary text-center w-100 mb-5 mt-3">Online Payment</button>
+    </div>
+    
+  </form>
+</div>

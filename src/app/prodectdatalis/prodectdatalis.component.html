@@ -1,0 +1,34 @@
+<div class="container">
+  <div class=" row g-5 mt-3 mb-3" *ngIf="prodectDatails!== undefined else loooding">
+    <div class="col-md-4 col-sm-12">
+      <img [src]="prodectDatails.imageCover" class="w-100 h-100" alt="photo-prodectdatails">
+    </div>
+    <div class="col-md-8 col-sm-12 m-auto">
+      <h5 class="fw-bold">{{prodectDatails.title}}</h5>
+      <p class="text-secondary">{{prodectDatails.description}}</p>
+      <div class="pt-2">
+        <p class="fs-4">{{prodectDatails.category.name}}</p>
+        <div class="d-flex justify-content-between align-items-center w-100 ">
+          <p>{{prodectDatails.price|currency:'EGP '}}</p>
+          <p><i class="fa-solid fa-star rating-color pe-1"></i>{{prodectDatails.ratingsAverage}}</p>
+        </div>
+      </div>
+      <button class="btn btn-success text-center w-100 mt-3" (click)="addtoprodectCart(prodectDatails.id)"><i class="fa-solid fa-plus"></i> add to cart </button>
+      
+    </div>
+
+  </div>
+  <ng-template #loooding>
+    <div class="loding d-flex justify-content-center align-items-center">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>

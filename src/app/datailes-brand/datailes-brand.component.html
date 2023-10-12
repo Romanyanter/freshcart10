@@ -1,0 +1,24 @@
+<div class="container pt-5">
+  <div class="row shadow bg-secondary-subtle mt-5 mb-5" *ngIf="prodectbrand !== undefined else loooding">
+    <div class="col-md-12 text-center">
+      <img [src]="prodectbrand.image" class="w-25 pt-5 pb-5" alt="photo">
+      <div class="alert alert-light">
+        <h3 class="text-success m-0">Namebrand: {{prodectbrand.name}}</h3>
+      </div>
+      
+    </div>
+  </div>
+  <ng-template #loooding>
+    <div class="loding d-flex justify-content-center align-items-center">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>

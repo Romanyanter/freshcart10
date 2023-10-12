@@ -1,1 +1,298 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+
+:root {
+  --main-color: #0aad0a;
+  --light-color: #f0f3f2;
+  --shadow: rgba(233, 236, 239, 0.2) 0px 2px 4px -1px,
+    rgba(233, 236, 239, 0.14) 0px 4px 5px 0px,
+    rgba(233, 236, 239, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color: #ffc908;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family) !important;
+}
+.shadow {
+  background-color: var(--shadow);
+}
+.min-color {
+  color: var(--main-color);
+}
+
+.rating-color {
+  color: var(--rating-color);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+a,
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.product:hover {
+  box-shadow: var(--shadow);
+  border: solid 1px var(--main-color);
+}
+
+.product .btn {
+  transition: transform 1s, opacity 1s;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.product:hover .btn {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.font-sm {
+  font-size: 14px;
+}
+
+.text-main {
+  color: var(--main-color);
+}
+
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+.navbar i {
+  margin: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.sk-chase {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: sk-chase-dot 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:before {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: #0aad0a;
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:nth-child(1) {
+  animation-delay: -1.1s;
+}
+.sk-chase-dot:nth-child(2) {
+  animation-delay: -1s;
+}
+.sk-chase-dot:nth-child(3) {
+  animation-delay: -0.9s;
+}
+.sk-chase-dot:nth-child(4) {
+  animation-delay: -0.8s;
+}
+.sk-chase-dot:nth-child(5) {
+  animation-delay: -0.7s;
+}
+.sk-chase-dot:nth-child(6) {
+  animation-delay: -0.6s;
+}
+.sk-chase-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+.sk-chase-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+.sk-chase-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+.sk-chase-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+.sk-chase-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+.sk-chase-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+@keyframes sk-chase {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sk-chase-dot {
+  80%,
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4);
+  }
+  100%,
+  0% {
+    transform: scale(1);
+  }
+}
+.loding {
+  width: 100%;
+  height: 80vh;
+}
+.images img {
+  width: 70px;
+  cursor: pointer;
+}
+.iconse img {
+  width: 200px;
+  cursor: pointer;
+}
+.datails {
+  cursor: pointer;
+}
+.image-owl-carousel img {
+  width: 100%;
+  height: 400px;
+  padding: 5px;
+  border-radius: 20px;
+}
+@media screen and (max-width: 990px) {
+  .text-tope {
+    align-items: center;
+  }
+  .icones {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .text-topes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+  }
+}
+.qty .count {
+  color: #000;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 0 2px;
+  min-width: 35px;
+  text-align: center;
+}
+.qty .plus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial, sans-serif;
+  text-align: center;
+  border-radius: 50%;
+}
+.qty .minus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial, sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+.number span {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  bottom: 2.15rem;
+}
+
+.minus:hover {
+  background-color: var(--main-color) !important;
+}
+.plus:hover {
+  background-color: var(--main-color) !important;
+}
+/*Prevent text selection*/
+// span {
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+// }
+input {
+  border: 0;
+  width: 2%;
+}
+nput::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:disabled {
+  background-color: white;
+}
+.forget{
+  height: 100vh;
+  width: 100%;
+  
+}
+.forgispasswordr{
+  color:#000;
+  
+}
+.forgispasswordr a:hover{
+  color: #0aad0a;
+}
+li a {
+  border-radius: 5px;
+}
+.photo-catogers img {
+  width: 100%;
+  height: 400px;
+}
+.photo-catogers {
+  border-radius: 10px;
+}
+.photo-wshlist{
+  width: 200px;
+  height: 200px;
+}
+.forgitpassowrd{
+  cursor: pointer;
+}
+.photo-paypey{
+  width: 70px;
+}

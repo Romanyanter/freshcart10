@@ -1,0 +1,132 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top mb-5 pb-0">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/freshcart-logo.svg" alt="logo websit" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav text-center me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="enableNavber"
+            routerLink="home"
+            routerLinkActive="bg-main"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="enableNavber"
+            routerLink="product"
+            routerLinkActive="bg-main"
+            >Products</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="enableNavber"
+            routerLink="categories"
+            routerLinkActive="bg-main"
+            >Categories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="enableNavber"
+            routerLink="wishlist"
+            routerLinkActive="bg-main"
+            >Wish list</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="enableNavber"
+            routerLink="brands"
+            routerLinkActive="bg-main"
+            >Brands</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <div class="d-flex justify-content-center">
+          <li class="nav-item">
+            <a
+              href="https://www.facebook.com/romane.antar?mibextid=ZbWKwL"
+              target="_blank"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="https://twitter.com/RomanyAnter2?t=KSwcmmfIKL7mxC-p3-ic_g&s=35"
+              target="_blank"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="https://www.linkedin.com/in/romany-anter-79b688215"
+              target="_blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </li>
+        </div>
+        
+        <i class="fa-solid fa-user text-center"></i>
+        <li class="nav-item text-center">
+          <a class="nav-link text-success fw-bolder" *ngIf="enableNavber"> {{ userNAme }}</a>
+        </li>
+        <li class="nav-item position-relative text-center number">
+          <a class="nav-link" *ngIf="enableNavber" routerLink="cart"
+            ><i class="fa-solid fa-cart-shopping min-color"></i>
+          <span class="text-success ps-2 pe-2">{{nameOffcart}}</span></a>
+        </li>
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            *ngIf="!enableNavber"
+            routerLink="register"
+            routerLinkActive="bg-main"
+            >register</a
+          >
+        </li>
+      
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            *ngIf="!enableNavber"
+            routerLink="login"
+            routerLinkActive="bg-main"
+            >login</a
+          >
+        </li>
+        <li class="nav-item text-center">
+          <a
+            class="nav-link"
+            (click)="makelogout()"
+            *ngIf="enableNavber"
+            routerLink="home"
+            routerLinkActive="bg-main"
+            >logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

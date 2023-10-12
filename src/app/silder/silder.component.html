@@ -1,0 +1,10 @@
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let slide of catagrousilder">
+    <ng-template carouselSlide [id]="slide._id">
+      <div class="image-owl-carousel mt-5 pt-5">
+        <img [src]="slide.image" class="w-100">
+      </div>
+      
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>

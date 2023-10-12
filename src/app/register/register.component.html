@@ -1,0 +1,221 @@
+<div class="container pt-5">
+  <h4 class="mt-4 mb-4 fw-bold">Rgister Now :</h4>
+<form [formGroup]="rgisterForm" (ngSubmit)="sigUp(rgisterForm)">
+  <label for="name">name:</label>
+  <input
+    type="text"
+    class="form-control mb-3"
+    id="name"
+    formControlName="name"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="rgisterForm.get('name')?.errors && rgisterForm.get('name')?.touched"
+  >
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('name')?.getError('required') &&
+        rgisterForm.get('name')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('name')?.getError('minlength') &&
+        rgisterForm.get('name')?.touched
+      "
+    >
+      required min Length is 6
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('name')?.getError('maxlength') &&
+        rgisterForm.get('name')?.touched
+      "
+    >
+      required max Length is 12
+    </p>
+  </div>
+  <label for="email">email:</label>
+  <input
+    type="email"
+    class="form-control mb-3"
+    id="email"
+    formControlName="email"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      rgisterForm.get('email')?.errors && rgisterForm.get('email')?.touched
+    "
+  >
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('email')?.getError('required') &&
+        rgisterForm.get('email')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('email')?.getError('email') &&
+        rgisterForm.get('email')?.touched
+      "
+    >
+      Please Enter Correct Email
+    </p>
+  </div>
+
+  <label for="password">password:</label>
+  <input
+    type="password"
+    class="form-control mb-3"
+    id="password"
+    formControlName="password"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      rgisterForm.get('password')?.errors &&
+      rgisterForm.get('password')?.touched
+    "
+  >
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('password')?.getError('required') &&
+        rgisterForm.get('password')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('password')?.getError('maxlength') &&
+        rgisterForm.get('password')?.touched
+      "
+    >
+      required max Length is 10
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('password')?.getError('minlength') &&
+        rgisterForm.get('password')?.touched
+      "
+    >
+      required min Length is 6
+    </p>
+  </div>
+  <label for="rePassword">rePassword:</label>
+  <input
+    type="password"
+    class="form-control mb-3"
+    id="rePassword"
+    formControlName="rePassword"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      rgisterForm.get('rePassword')?.errors &&
+      rgisterForm.get('rePassword')?.touched
+    "
+  >
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('rePassword')?.getError('required') &&
+        rgisterForm.get('rePassword')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('rePassword')?.getError('minlength') &&
+        rgisterForm.get('rePassword')?.touched
+      "
+    >
+      required min Length is 6
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('rePassword')?.getError('maxlength') &&
+        rgisterForm.get('rePassword')?.touched
+      "
+    >
+      required max Length is 10
+    </p>
+  </div>
+  <p
+    class="text-danger"
+    *ngIf="
+      rgisterForm.get('rePassword')?.value !==
+        rgisterForm.get('password')?.value &&
+      rgisterForm.get('rePassword')?.touched
+    "
+  >
+    repassword didn't match with password
+  </p>
+  <label for="phone">phone:</label>
+  <input
+    type="phone"
+    class="form-control mb-3"
+    id="phone"
+    formControlName="phone"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      rgisterForm.get('phone')?.errors && rgisterForm.get('phone')?.touched
+    "
+  >
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('phone')?.getError('required') &&
+        rgisterForm.get('phone')?.touched
+      "
+    >
+      Please Fill Out This Field
+    </p>
+    <p
+      class="m-0"
+      *ngIf="
+        rgisterForm.get('phone')?.getError('pattern') &&
+        rgisterForm.get('phone')?.touched
+      "
+    >
+      Please Enter Correct Phone
+    </p>
+  </div>
+
+  <button *ngIf="!islooding; else name" class="btn btn-success mb-3">
+    Rgister
+  </button>
+  <ng-template #name>
+    <button class="btn btn-success mb-3">
+      <i class="fa-solid fa-spinner fa-spin"></i>
+    </button>
+  </ng-template>
+
+  <div class="alert alert-danger" *ngIf="isappert">
+    <p class="m-0">{{ massegaerror }}</p>
+  </div>
+  <div class="alert alert-light" *ngIf="issucces">
+    <p class="text-success m-0 text-center">{{ messagesucces }}</p>
+  </div>
+</form>
+
+
+</div>

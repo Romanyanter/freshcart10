@@ -1,0 +1,27 @@
+<div class="container pt-5">
+  <div class="row g-5 mt-5 mb-5"  *ngIf="prodectALL.length>0; else loooding">
+    <div class="col-md-3 text-center" *ngFor="let prodect of prodectALL">
+      <div class="photo-catogers border border-1 border-secondary-subtle" [routerLink]='["/datailscategories" , prodect._id , prodect.name ]'>
+        <img [src]="prodect.image" class="photo ps-3 pt-3 pe-3 pb-4 " alt="photo">
+        <h5 class="text-success pb-3">{{prodect.name}}</h5>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<ng-template #loooding>
+  <div class="loding d-flex justify-content-center align-items-center">
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+  </div>
+</ng-template>

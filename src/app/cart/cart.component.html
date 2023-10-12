@@ -1,0 +1,76 @@
+<div class="container mt-5" *ngIf="cartData.length > 0; else loooding">
+  <div class="d-flex justify-content-between align-items-center mt-5">
+    <h2 class="text-success pt-5 ps-5">
+      shoping Cart <i class="fa-solid fa-cart-shopping text-success fs-2"></i>
+    </h2>
+    <div>
+      <button class="btn btn-outline-danger mt-5 me-5" (click)="removecart()">
+        Clear Cart <i class="fa-solid fa-light fa-trash-can"></i>
+      </button>
+    </div>
+  </div>
+  <button class="btn btn-outline-success mt-3 mb-3 mx-auto w-100" [routerLink]="['/allorders']"> Allorders</button>
+  <div class="row mt-2 mb-3 bg-light">
+    <div
+      class="col-md-12 border border-2 border-light-subtle"
+      *ngFor="let p of cartData"
+    >
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center">
+            <img [src]="p.product.imageCover" class="w-25" alt="photo-cart" />
+            <h5>{{ p.product.title }}</h5>
+            <p>{{ p.product._id }}</p>
+
+            <button
+              class="mt-3 btn btn-outline-danger mb-3"
+              (click)="removitem(p.product.id)"
+            >
+              Remove item <i class="fa-solid fa-light fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div
+            class="d-flex justify-content-center align-items-center w-100 h-100 flex-column"
+          >
+            <h2 class="text-success">{{ p.price | currency : "EGP " }}</h2>
+
+            <div class="qty mt-5">
+              <span
+                class="minus bg-dark"
+                (click)="
+                  Updatecartproductquantitymunis(p.product.id, p.count - 1)
+                "
+                >-</span
+              >
+              <input type="number" class="count" name="qty" [value]="p.count" />
+              <span
+                class="plus bg-dark"
+                (click)="
+                  Updatecartproductquantitypluse(p.product.id, p.count + 1)
+                "
+                
+                >+</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-success d-flex justify-content-between align-items-center">
+    <h2 class="text-main text-center m-0">
+      TotalPrice: {{ tottalprice | currency : " EGP " }}
+    </h2>
+    <button class="btn btn-success" [routerLink]='["/checkout" , cartid]'>Pay Online <img src="../../assets/PayPal-Logo.png" class="photo-paypey"  alt=""></button>
+  </div>
+</div>
+<ng-template #loooding>
+  <div class="d-flex justify-content-center align-items-center w-100 vh-100">
+    <div class="alert alert-danger">
+      <h2 class="text-danger m-0">Your Cart Is Empty!</h2>
+    </div>
+  </div>
+</ng-template>
+

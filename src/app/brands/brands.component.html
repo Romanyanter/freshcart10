@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row g-3 pt-5 mb-5 " *ngIf="prodectAll.length > 0; else loooding">
+    <div class="col-md-3 col-sm-12" *ngFor="let prodect of prodectAll">
+      <div class="border border-1 border-secondary-subtle">
+        <img [src]="prodect.image" [routerLink]='["/datailes-brand",prodect._id , prodect.name]' class="w-75" alt="photo" />
+        <h5 class="text-success ps-3">{{prodect.name}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loooding>
+  <div class="loding d-flex justify-content-center align-items-center">
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+  </div>
+</ng-template>
