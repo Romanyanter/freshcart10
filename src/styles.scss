@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
-
 :root {
   --main-color: #0aad0a;
   --light-color: #f0f3f2;
@@ -9,15 +8,18 @@
     rgba(233, 236, 239, 0.12) 0px 1px 10px 0px;
   --font-family: "Encode Sans Expanded", sans-serif;
   --rating-color: #ffc908;
+  --color-red: red;
 }
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
-
 body {
   font-family: var(--font-family) !important;
+}
+.text-red {
+  color: var(--color-red);
 }
 .shadow {
   background-color: var(--shadow);
@@ -264,16 +266,14 @@ input::-webkit-inner-spin-button {
 input:disabled {
   background-color: white;
 }
-.forget{
+.forget {
   height: 100vh;
   width: 100%;
-  
 }
-.forgispasswordr{
-  color:#000;
-  
+.forgispasswordr {
+  color: #000;
 }
-.forgispasswordr a:hover{
+.forgispasswordr a:hover {
   color: #0aad0a;
 }
 li a {
@@ -286,13 +286,20 @@ li a {
 .photo-catogers {
   border-radius: 10px;
 }
-.photo-wshlist{
+.photo-wshlist {
   width: 200px;
   height: 200px;
 }
-.forgitpassowrd{
+.forgitpassowrd {
   cursor: pointer;
 }
-.photo-paypey{
+.photo-paypey {
   width: 70px;
+}
+.dropdown button {
+  border: 0px solid transparent !important;
+  background-color: transparent !important;
+}
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 !important;
 }

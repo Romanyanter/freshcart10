@@ -27,6 +27,7 @@ import { HeadersInterceptor } from './headers.interceptor';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AllordersComponent } from './allorders/allorders.component';
 import { RestercodeComponent } from './restercode/restercode.component';
+import { UpdatapasswordComponent } from './updatapassword/updatapassword.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { RestercodeComponent } from './restercode/restercode.component';
     CheckoutComponent,
     AllordersComponent,
     RestercodeComponent,
+    UpdatapasswordComponent,
 ],
   imports: [
     BrowserModule,

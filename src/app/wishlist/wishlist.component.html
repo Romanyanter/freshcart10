@@ -5,7 +5,11 @@
     <div class="col" *ngFor="let item of prodectwshlist">
       <div class="product p-2">
         <div class="ptorcut-area position-relative">
-          <span (click)="removeprodectfromwshlist(item._id)" role="button" class="icon position-absolute top-0 end-0">
+          <span
+            (click)="removeprodectfromwshlist(item._id)"
+            role="button"
+            class="icon position-absolute top-0 end-0"
+          >
             <i class="fa-solid fa-heart-crack text-main fs-3"></i>
           </span>
 
@@ -29,7 +33,7 @@
         </div>
         <button
           (click)="addtoprodectCart(item._id)"
-          class="btn bg-main ms-3 text-white"
+          class="btn bg-main w-100 text-white"
         >
           + Add To Cart
         </button>

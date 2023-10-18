@@ -30,7 +30,13 @@ export class SilderComponent {
       },
       940: {
         items: 4
-      }
+      },
+      // 1000: {
+      //   items: 5
+      // },
+      // 1100: {
+      //   items: 6
+      // }
     },
     nav: true
   }

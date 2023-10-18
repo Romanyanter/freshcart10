@@ -107,10 +107,8 @@ export class RestercodeComponent {
       };
       this._AuthticationService.ResetPassword(userData).subscribe({
         next: (res) => {
-          console.log(res);
-          setTimeout(() => {
+          console.log(res)
             this._Router.navigate(['/home']);
-          }, 1000);
           this.errMsg = res.message;
           this.isloader = false;
           resetPassword.disable();

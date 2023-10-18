@@ -74,54 +74,81 @@
   </div>
 
   <label for="password">password:</label>
-  <input
-    type="password"
-    class="form-control mb-3"
-    id="password"
-    formControlName="password"
-  />
+  <div class="position-relative">
+    <input
+    #pass
+      type="password"
+      class="form-control mb-3"
+      id="password"
+      formControlName="password"
+    />
+    <span (click)="passwordshow=true;passwordshow==true?(pass.type='text'):(pass.type='password')"
+    [ngClass]="{'d-none':passwordshow}" role="button"
+    class="position-absolute top-50 end-0 translate-middle-y me-2">
+    <i class="fas fa-eye"></i>
+    </span>
+    <span (click)="passwordshow=false;passwordshow==false?(pass.type='password'):(pass.type='text')"
+    [ngClass]="{'d-none':!passwordshow}" role="button"
+    class="position-absolute top-50 end-0 translate-middle-y me-2">
+    <i class="fas fa-eye-slash"></i>
+    </span>
+  
+  </div>
   <div
-    class="alert alert-danger"
+  class="alert alert-danger"
+  *ngIf="
+    rgisterForm.get('password')?.errors &&
+    rgisterForm.get('password')?.touched
+  "
+>
+  <p
+    class="m-0"
     *ngIf="
-      rgisterForm.get('password')?.errors &&
+      rgisterForm.get('password')?.getError('required') &&
       rgisterForm.get('password')?.touched
     "
   >
-    <p
-      class="m-0"
-      *ngIf="
-        rgisterForm.get('password')?.getError('required') &&
-        rgisterForm.get('password')?.touched
-      "
-    >
-      Please Fill Out This Field
-    </p>
-    <p
-      class="m-0"
-      *ngIf="
-        rgisterForm.get('password')?.getError('maxlength') &&
-        rgisterForm.get('password')?.touched
-      "
-    >
-      required max Length is 10
-    </p>
-    <p
-      class="m-0"
-      *ngIf="
-        rgisterForm.get('password')?.getError('minlength') &&
-        rgisterForm.get('password')?.touched
-      "
-    >
-      required min Length is 6
-    </p>
-  </div>
+    Please Fill Out This Field
+  </p>
+  <p
+    class="m-0"
+    *ngIf="
+      rgisterForm.get('password')?.getError('maxlength') &&
+      rgisterForm.get('password')?.touched
+    "
+  >
+    required max Length is 10
+  </p>
+  <p
+    class="m-0"
+    *ngIf="
+      rgisterForm.get('password')?.getError('minlength') &&
+      rgisterForm.get('password')?.touched
+    "
+  >
+    required min Length is 6
+  </p>
+</div>
+  
   <label for="rePassword">rePassword:</label>
-  <input
+  <div class="position-relative">
+    <input
+    #repass
     type="password"
     class="form-control mb-3"
     id="rePassword"
     formControlName="rePassword"
   />
+  <span (click)="repsasswordshow = true; repsasswordshow==true?(repass.type='text'):(repass.type='password')"
+  [ngClass]="{'d-none':repsasswordshow}" role="button" class="position-absolute top-50 end-0 translate-middle-y me-2">
+  <i class="fas fa-eye"></i>
+  </span>
+  <span (click)="repsasswordshow = false; repsasswordshow==false?(repass.type='password'):(repass.type='text')"
+  [ngClass]="{'d-none':!repsasswordshow}" role="button" class="position-absolute top-50 end-0 translate-middle-y me-2">
+  <i class="fas fa-eye-slash"></i>
+  </span>
+  </div>
+  
   <div
     class="alert alert-danger"
     *ngIf="

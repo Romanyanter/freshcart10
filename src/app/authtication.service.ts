@@ -30,4 +30,7 @@ VerifyResetCode(data:any): Observable<any>{
 ResetPassword(data:any): Observable<any>{
   return this._httpClient.put('https://ecommerce.routemisr.com/api/v1/auth/resetPassword',data)
 }
+updatapassowrd(data:any):Observable<any>{
+return this._httpClient.put('https://ecommerce.routemisr.com/api/v1/users/changeMyPassword',data)
+}
 }

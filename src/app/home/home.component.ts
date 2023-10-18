@@ -16,10 +16,8 @@ export class HomeComponent implements OnInit {
   prodectList:prodect[] = [];
   catagrou:catagroue[] = [];
   searchword:string='';
-  wishlist:any= true;
-  
-  
-
+  wishlist:any[]= [];
+  wishlistdone:string[]=[];
   constructor(public _ProdectsapiService: ProdectsapiService,private _CartServersService:CartServersService,
     private toastr:ToastrService,private _WishlistService:WishlistService) {}
   showSuccess() {
@@ -54,19 +52,17 @@ export class HomeComponent implements OnInit {
         this._CartServersService.itemconterIncart.next(respone.numOfCartItems);
         
         
+        
       },
       error:(err)=>{console.log(err);
-      }
-
-      
-      
+      }   
     })
   }
   addprodectWshlist(prodectid:any){
     this._WishlistService.Addprodectwshlist(prodectid).subscribe({
       next:(response)=>{
         console.log(prodectid);
-        
+        this.wishlist = response.data;
         console.log(response.data);
         this.showSuccesswshlist();
       },
@@ -82,9 +78,11 @@ export class HomeComponent implements OnInit {
       next:(response)=>{
         console.log(response);
         this.wishlist = response.data;
+        this.showerrorlist()
       },error:(err)=>{
         console.log(err);
-        
+
+    
 
       }
     })

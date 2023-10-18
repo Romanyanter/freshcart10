@@ -65,38 +65,67 @@
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <div class="d-flex justify-content-center">
+          <li class="nav-item position-relative text-center number">
+            <a class="nav-link" *ngIf="enableNavber" routerLink="cart"
+              ><i class="fa-solid fa-cart-shopping min-color fs-4"></i>
+            <span class="text-success ps-2 pe-2">{{nameOffcart}}</span></a>
+          </li>
           <li class="nav-item">
             <a
               href="https://www.facebook.com/romane.antar?mibextid=ZbWKwL"
               target="_blank"
-              ><i class="fa-brands fa-facebook-f"></i
+              ><i class="fa-brands fa-facebook-f fs-3"></i
             ></a>
           </li>
           <li class="nav-item">
             <a
               href="https://twitter.com/RomanyAnter2?t=KSwcmmfIKL7mxC-p3-ic_g&s=35"
               target="_blank"
-              ><i class="fa-brands fa-twitter"></i
+              ><i class="fa-brands fa-twitter fs-3"></i
             ></a>
           </li>
           <li class="nav-item">
             <a
               href="https://www.linkedin.com/in/romany-anter-79b688215"
               target="_blank"
-              ><i class="fa-brands fa-linkedin"></i
+              ><i class="fa-brands fa-linkedin fs-3"></i
             ></a>
           </li>
         </div>
         
-        <i class="fa-solid fa-user text-center"></i>
-        <li class="nav-item text-center">
-          <a class="nav-link text-success fw-bolder" *ngIf="enableNavber"> {{ userNAme }}</a>
+        <li class="nav-item mx-3 text-center fs-3">
+          <div class="dropdown">
+            <button  class="dropdown-toggle" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false" >
+              <i class="fas fa-user text-success"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                  class="dropdown-item small fw-bold text-success"
+                 *ngIf="enableNavber"> {{ userNAme }}</a >
+                <a
+                  class="dropdown-item small"
+                  routerLinkActive="active-link" routerLink="/restercode" >Forgot Password</a >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item small"
+                  routerLinkActive="active-link"
+                  routerLink="/updatapassword"
+                  >Update password</a
+                >
+              </li>
+
+              <li>
+                <a class="dropdown-item small"
+                  routerLinkActive="active-link"
+                  routerLink="/allorders">All Orders</a >
+              </li>
+            </ul>
+          </div>
         </li>
-        <li class="nav-item position-relative text-center number">
-          <a class="nav-link" *ngIf="enableNavber" routerLink="cart"
-            ><i class="fa-solid fa-cart-shopping min-color"></i>
-          <span class="text-success ps-2 pe-2">{{nameOffcart}}</span></a>
-        </li>
+        
         <li class="nav-item text-center">
           <a
             class="nav-link"
@@ -118,7 +147,7 @@
         </li>
         <li class="nav-item text-center">
           <a
-            class="nav-link"
+            class="nav-link fs-5 mt-2"
             (click)="makelogout()"
             *ngIf="enableNavber"
             routerLink="home"

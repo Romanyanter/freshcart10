@@ -16,6 +16,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AllordersComponent } from './allorders/allorders.component';
 import { RegisterComponent } from './register/register.component';
 import { RestercodeComponent } from './restercode/restercode.component';
+import { UpdatapasswordComponent } from './updatapassword/updatapassword.component';
 
 
 
@@ -70,12 +71,19 @@ const routes: Routes = [
     component: AllordersComponent,
     canActivate: [authontactionGuard],
   },
+  {
+    path: 'updatapassword',
+    component: UpdatapasswordComponent,
+    canActivate: [authontactionGuard],
+  },
+  
   
   {
     path: 'datailscategories/:prodectid/:prodectname',
     component: DatailscategoriesComponent,
     canActivate: [authontactionGuard],
   },
+  
   
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

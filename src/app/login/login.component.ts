@@ -15,6 +15,7 @@ export class LoginComponent {
   issucces: boolean = false;
   massegaerror: string = '';
   messagesucces: string = '';
+  passwordshow:boolean = false;
   
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),

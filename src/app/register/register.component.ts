@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+Fromit: any;
   constructor(
     private _AuthonticationService: AuthonticationService,
     private _Router: Router
@@ -18,6 +19,8 @@ export class RegisterComponent {
   issucces: boolean = false;
   massegaerror: string = '';
   messagesucces: string = '';
+  passwordshow:boolean = false;
+  repsasswordshow:boolean = false;
 
   rgisterForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
